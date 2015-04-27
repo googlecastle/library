@@ -25,8 +25,8 @@
       <div class="caption">
        <center><h2><span style="color:orange;font-weight:bold;"><?php echo $value->d_id; ?></span></h2></center> 
         <p><?php echo $value->d_name; ?></p>
-        <center><p><span style="color:orange;">Category(<?php echo $this->db->get_where('Category',array('c_dewey'=>$value->d_id))->num_rows();?>)</span></p></center>
-        <center> <p><?php echo anchor('category','View') ?></p></center>
+        <center><p><span style="color:orange;">Category(<?php echo $this->book_model->getcategory($value->d_id);?>)</span></p></center>
+        <center> <p><?php echo anchor('category/go/$value->d_id','View') ?></p></center>
        
       </div>
     </div>

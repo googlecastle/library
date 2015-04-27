@@ -19,17 +19,37 @@
   <center><h1 style="margin:0;">Dewey Decimal System</h1></center>
 <?php foreach ($record as $value): ?>
   
-    <div class="col-md-3" >
-    <div class="thumbnail">
-      <img data-src="holder.js/100%x180" alt="...">
-      <div class="caption">
-       <center><h2><span style="color:orange;font-weight:bold;"><?php echo $value->d_id; ?></span></h2></center> 
-        <p><?php echo $value->d_name; ?></p>
-        <center><p><span style="color:orange;">Category(<?php echo $this->db->get_where('Category',array('c_dewey'=>$value->d_id))->num_rows();?>)</span></p></center>
-        <center> <p><?php echo anchor('category','View') ?></p></center>
-       
-      </div>
-    </div>
+    <div class="col-md-12" >
+   <table class="table table-hover1" id="dev-table">
+                                    
+                         
+                       
+                                  <tr>
+                                    <td  class="bs-callout bs-callout-info">
+                                       <b> <?php echo $value->d_name ?></b> Reserved Book Title <b> <?php echo $var3['title']?></b>
+                                       <a href="cancelreservedmsg2.php?borrower=<?=$var3['brid']?>&&studid=<?=$student?>"  type="button" class="btn btn-sm btn-danger pull-right"><i class="glyphicon glyphicon-remove"></i> Cancel</a>
+                                      <a href="process.php?submit=reserveconfirm&&bok=<?=$var3['brid']?>&studid=<?=$student?>"  type="button" class="btn btn-sm btn-info pull-right" data-toggle="tooltip" data-placement="right" title="Confirm"><i class="glyphicon glyphicon-th-list"></i> Confirmed</a>
+
+                                        
+    
+
+                                    </td>
+                                    
+                                    
+                               
+                                      
+                                      <td colspan="5">
+                                      
+                                      </td>
+
+                                      
+                                      
+                                    </tr>
+
+                                
+                                  
+                                
+            </table>
   </div>
 <br>
  <?php endforeach ?>
